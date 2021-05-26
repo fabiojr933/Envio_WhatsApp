@@ -1,0 +1,26 @@
+public function Retorno(){
+      $path = "retorno/retorno.txt";
+        $fileContent = file_get_contents($path);
+       
+        $arquivo = new Retorno($fileContent);
+
+        $registros = $arquivo->getRegistros();
+        foreach($registros as $registro)
+        {
+            if($registro->R3U->codigo_movimento==6){
+                $banco           = $registro->codigo_banco;   
+                $numero_registro = $registro->numero_registro;   
+                $nome_pagador    = $registro->nome_pagador;   
+                $vencimento      = $registro->vencimento;   
+                
+                $parcela         = $registro->parcela;               
+                $nossoNumero     = $registro->nosso_numero;
+                $valorRecebido   = $registro->R3U->vlr_pago;
+                $dataPagamento   = $registro->R3U->data_ocorrencia;
+                $vlr_tarifa      = $registro->vlr_tarifa;  
+                $carteira        = $registro->carteira;
+                echo $banco .' -_- ' .$numero_registro .' -_- ' .$nome_pagador .' -_- '.$vencimento .' -_- '.$parcela .' -_- '.$nossoNumero .' -_- ' 
+                .$valorRecebido .' -_- '.$valorRecebido .' -_- '.$dataPagamento .' -_- '.$vlr_tarifa .' -_- '.$carteira  .'<br>';
+            }
+           
+        }       

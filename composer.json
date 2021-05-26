@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "require": {
+        "shuchkin/simplexls": "^0.9.10"
+    }
+}
